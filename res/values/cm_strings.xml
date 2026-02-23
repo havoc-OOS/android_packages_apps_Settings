@@ -39,6 +39,12 @@
     <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">LineageOS legal</string>
 
+    <!-- Device Info screen. HavocOOS legal. -->
+    <string name="havoclicense_title">HavocOOS legal</string>
+
+    <!-- Device Info screen. HavocOOS version. -->
+    <string name="havoc_version">HavocOOS version</string>
+
     <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <string name="show_dev_countdown_cm">{count, plural,
       =1      {You are now # step away from enabling development settings.}
