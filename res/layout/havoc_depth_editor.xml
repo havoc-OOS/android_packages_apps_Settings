@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Havoc OS: Depth Wallpaper Layer Editor
+  Allows selecting BG/FG layers, previewing combined result,
+  and adjusting parallax intensity.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/havoc_bg_primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/havoc_ws_layer_editor"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Combined Preview Card -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:background="@drawable/havoc_ws_card_bg"
+            android:layout_marginBottom="16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/combined_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Preview"
+                android:textColor="#55FFFFFF"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <!-- Layer Selection -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LAYERS"
+            android:textColor="@color/havoc_accent"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Background + Foreground side by side -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <!-- Background Layer -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:background="@drawable/havoc_ws_card_bg">
+
+                    <ImageView
+                        android:id="@+id/preview_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:importantForAccessibility="no" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Background"
+                        android:textColor="#44FFFFFF"
+                        android:textSize="12sp" />
+                </FrameLayout>
+
+                <Button
+                    android:id="@+id/btn_pick_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Choose Background"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/havoc_depth_badge_bg"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <!-- Foreground Layer -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:background="@drawable/havoc_ws_depth_card_bg">
+
+                    <ImageView
+                        android:id="@+id/preview_foreground"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:importantForAccessibility="no" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Foreground"
+                        android:textColor="#44FFFFFF"
+                        android:textSize="12sp" />
+                </FrameLayout>
+
+                <Button
+                    android:id="@+id/btn_pick_foreground"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Choose Foreground"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/havoc_ws_depth_card_bg"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Parallax Intensity -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PARALLAX INTENSITY"
+            android:textColor="@color/havoc_accent"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/havoc_ws_card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <SeekBar
+                android:id="@+id/intensity_slider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="65"
+                android:progressTint="@color/havoc_accent"
+                android:thumbTint="@color/havoc_accent" />
+
+            <TextView
+                android:id="@+id/intensity_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="65%"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+
+        <!-- Apply Button -->
+        <Button
+            android:id="@+id/btn_apply_depth"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Apply Depth Wallpaper"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/havoc_depth_badge_bg"
+            android:textAllCaps="false"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>

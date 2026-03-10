@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Havoc OS: Array resources for Wallpaper & Style pickers -->
+<resources>
+    <!-- System Font entries -->
+    <string-array name="havoc_fonts_entries">
+        <item>System Default</item>
+        <item>Havoc Sans Pro</item>
+        <item>Google Sans</item>
+        <item>Inter</item>
+        <item>Roboto Flex</item>
+        <item>Outfit</item>
+        <item>Manrope</item>
+        <item>JetBrains Mono</item>
+        <item>Space Grotesk</item>
+    </string-array>
+
+    <string-array name="havoc_fonts_values">
+        <item>system</item>
+        <item>havoc-sans</item>
+        <item>google-sans</item>
+        <item>inter</item>
+        <item>roboto-flex</item>
+        <item>outfit</item>
+        <item>manrope</item>
+        <item>jetbrains-mono</item>
+        <item>space-grotesk</item>
+    </string-array>
+
+    <!-- Icon Shape entries -->
+    <string-array name="havoc_icon_shapes_entries">
+        <item>Circle</item>
+        <item>Squircle</item>
+        <item>Rounded Rectangle</item>
+        <item>Teardrop</item>
+        <item>Hexagon</item>
+        <item>Clover</item>
+    </string-array>
+
+    <string-array name="havoc_icon_shapes_values">
+        <item>circle</item>
+        <item>squircle</item>
+        <item>rounded-rect</item>
+        <item>teardrop</item>
+        <item>hexagon</item>
+        <item>clover</item>
+    </string-array>
+</resources>

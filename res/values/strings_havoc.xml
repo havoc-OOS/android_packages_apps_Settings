@@ -16,4 +16,19 @@
 
     <!-- About Phone -->
     <string name="havoc_battery_health">Battery health</string>
+
+    <!-- Wallpaper & Style -->
+    <string name="havoc_ws_title">Home screen, Lock screen \u0026 style</string>
+    <string name="havoc_ws_home_lock_title">HOME SCREEN \u0026 LOCK SCREEN</string>
+    <string name="havoc_ws_home_settings">Home screen settings</string>
+    <string name="havoc_ws_lock_settings">Lock screen settings</string>
+
+    <!-- Depth Wallpaper Controls -->
+    <string name="havoc_ws_depth_section_title">DEPTH EFFECT CONTROLS</string>
+    <string name="havoc_ws_depth_enable">Enable Depth Effect</string>
+    <string name="havoc_ws_parallax_strength">Parallax Strength</string>
+    <string name="havoc_ws_auto_detect">Auto-detect Subject</string>
+    <string name="havoc_ws_auto_detect_summary">Uses AI to create foreground mask</string>
+
+    <string name="wallpaper_style_title">@string/havoc_ws_title</string>
 </resources>

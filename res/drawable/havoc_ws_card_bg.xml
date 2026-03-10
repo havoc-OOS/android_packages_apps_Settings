@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Havoc: Glassmorphism dark card background for WS grid cards -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="24dp" />
+    <solid android:color="@color/havoc_tile_bg" />
+    <stroke android:width="0.5dp" android:color="@color/havoc_tile_border" />
+</shape>

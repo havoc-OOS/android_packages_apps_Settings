@@ -1668,6 +1668,44 @@
             <meta-data android:name="com.android.settings.icon_tintable" android:value="true" />
         </activity>
 
+        <!-- Havoc: Wallpaper & Style Settings Activity -->
+        <activity
+            android:name="Settings$HavocWallpaperStyleActivity"
+            android:label="@string/havoc_ws_title"
+            android:exported="true"
+            android:icon="@drawable/ic_wallpaper">
+            <intent-filter android:priority="2">
+                <action android:name="android.settings.WALLPAPER_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.display.havoc.HavocWallpaperStyleFragment" />
+            <meta-data android:name="com.android.settings.HIGHLIGHT_MENU_KEY"
+                       android:value="@string/menu_key_wallpaper" />
+        </activity>
+
+        <!-- Havoc: Depth Wallpaper Layer Editor -->
+        <activity
+            android:name=".display.havoc.DepthWallpaperActivity"
+            android:label="@string/havoc_ws_layer_editor"
+            android:exported="false"
+            android:theme="@style/Theme.Settings" />
+
+        <!-- Havoc: Depth Wallpaper Live Wallpaper Service -->
+        <service
+            android:name=".display.havoc.DepthWallpaperService"
+            android:label="@string/havoc_ws_depth_effect"
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/havoc_depth_wallpaper" />
+        </service>
+
+
         <activity
             android:name="Settings$DisplaySettingsActivity"
             android:label="@string/display_settings"

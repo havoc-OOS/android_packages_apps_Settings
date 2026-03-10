@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Havoc: Hero Carousel header for Wallpaper & Style (V2) -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Carousel Area (Horizontal Scroll) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:scrollbars="none"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <!-- Main Theme Card (Active) -->
+            <FrameLayout
+                android:id="@+id/hero_theme_card"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/havoc_hero_glow_bg"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/wallpaper_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/havoc_ws_card_bg"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop" />
+
+                <!-- Lock screen overlay mock -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="32dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wednesday"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:42"
+                        android:textColor="@android:color/black"
+                        android:textSize="64sp"
+                        android:fontFamily="sans-serif-bold"
+                        android:includeFontPadding="false"
+                        android:letterSpacing="-0.03" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 Mar • 22°"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+
+                <!-- Simulated Depth Foreground Image -->
+                <ImageView
+                    android:id="@+id/depth_foreground_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:scaleType="centerCrop"
+                    android:importantForAccessibility="no"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+            <!-- Second Theme Card (Peeking) -->
+            <FrameLayout
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/havoc_ws_card_bg"
+                android:alpha="0.8">
+                
+                <ImageView
+                    android:id="@+id/wallpaper_preview_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- All Havoc themes pill -->
+    <FrameLayout
+        android:id="@+id/btn_all_themes"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/havoc_pill_btn_bg"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="All Havoc themes"
+            android:textColor="#C084FC"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-medium" />
+    </FrameLayout>
+
+    <!-- 2x2 Grid Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp">
+
+        <!-- Row 1: Wallpapers & AOD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal">
+
+            <!-- Wallpapers Card -->
+            <LinearLayout
+                android:id="@+id/card_wallpapers"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/havoc_ws_card_bg"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/havoc_icon_circle_amber"
+                    android:scaleType="centerInside" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="Wallpapers"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#55FFFFFF" />
+            </LinearLayout>
+
+            <!-- AOD Card -->
+            <LinearLayout
+                android:id="@+id/card_aod"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/havoc_ws_card_bg"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <!-- Mock small clock for AOD -->
+                <FrameLayout
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/havoc_icon_circle_blue">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="2:42"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-bold" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="Always-On Display"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#55FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Row 2: Font & Depth Effect -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <!-- Font Card -->
+            <LinearLayout
+                android:id="@+id/card_font"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/havoc_ws_card_bg"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:text="Aa"
+                    android:textColor="#C084FC"
+                    android:textSize="22sp"
+                    android:fontFamily="serif"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="Font"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#55FFFFFF" />
+            </LinearLayout>
+
+            <!-- Depth Effect Card -->
+            <LinearLayout
+                android:id="@+id/card_depth_effect"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/havoc_ws_card_bg"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <FrameLayout
+                    android:layout_width="24dp"
+                    android:layout_height="24dp">
+                    <View android:layout_width="18dp" android:layout_height="14dp" android:background="@drawable/havoc_depth_layer_back" android:layout_gravity="top|start" />
+                    <View android:layout_width="18dp" android:layout_height="14dp" android:background="@drawable/havoc_depth_layer_front" android:layout_gravity="bottom|end" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Depth Effect"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="NEW"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp"
+                    android:fontFamily="sans-serif-bold"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="2dp"
+                    android:background="@drawable/havoc_depth_badge_bg" />
+
+                <Space android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#55FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

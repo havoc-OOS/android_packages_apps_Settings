@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Havoc OS: Home screen, Lock screen & style (V2 Hero Layout) -->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="havoc_wallpaper_style"
+    android:title="@string/havoc_ws_title">
+
+    <!-- Hero Header: Carousel + Pill + Grid -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="havoc_ws_header"
+        android:layout="@layout/havoc_ws_header"
+        android:selectable="false"
+        android:order="0" />
+
+    <!-- Home Screen & Lock Screen Section -->
+    <PreferenceCategory
+        android:key="category_home_lock"
+        android:title="@string/havoc_ws_home_lock_title"
+        android:layout="@layout/havoc_preference_category"
+        android:order="1">
+
+        <Preference
+            android:key="home_screen_settings"
+            android:title="@string/havoc_ws_home_settings"
+            android:icon="@drawable/havoc_icon_circle_green"
+            android:layout="@layout/havoc_preference"
+            android:order="1">
+            <intent android:action="com.android.launcher3.LAUNCH_SETTINGS" />
+        </Preference>
+
+        <Preference
+            android:key="lock_screen_settings"
+            android:title="@string/havoc_ws_lock_settings"
+            android:icon="@drawable/havoc_icon_circle_purple"
+            android:layout="@layout/havoc_preference"
+            android:order="2"
+            android:fragment="com.android.settings.security.LockscreenDashboardFragment" />
+
+    </PreferenceCategory>
+
+    <!-- Depth Effect Controls Section (Match V2 mockup) -->
+    <PreferenceCategory
+        android:key="category_depth_wallpaper"
+        android:title="@string/havoc_ws_depth_section_title"
+        android:layout="@layout/havoc_preference_category"
+        android:order="2">
+
+        <SwitchPreferenceCompat
+            android:key="depth_effect_enabled"
+            android:title="@string/havoc_ws_depth_enable"
+            android:layout="@layout/havoc_preference"
+            android:defaultValue="false"
+            android:order="1" />
+
+        <com.android.settings.widget.SeekBarPreference
+            android:key="depth_parallax_intensity"
+            android:title="@string/havoc_ws_parallax_strength"
+            android:max="100"
+            android:defaultValue="65"
+            android:layout="@layout/havoc_preference"
+            android:order="2"
+            settings:controller="com.android.settings.display.havoc.DepthParallaxController" />
+
+        <SwitchPreferenceCompat
+            android:key="depth_auto_detect"
+            android:title="@string/havoc_ws_auto_detect"
+            android:summary="@string/havoc_ws_auto_detect_summary"
+            android:layout="@layout/havoc_preference"
+            android:defaultValue="true"
+            android:order="3" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
