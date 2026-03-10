@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2025 The HavocOOS Project
+  Havoc OS sub-settings animated header layout
+  Used at the top of DashboardFragment sub-settings screens
+  -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="16dp"
+    android:gravity="center_horizontal"
+    android:background="@color/havoc_bg_primary">
+
+    <!-- Animated illustration container -->
+    <FrameLayout
+        android:id="@+id/havoc_header_illustration"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginBottom="8dp">
+
+        <!-- LottieAnimationView or ImageView to be set by controller -->
+        <ImageView
+            android:id="@+id/havoc_header_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+</LinearLayout>

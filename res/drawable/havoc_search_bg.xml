@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search bar with subtle inner shadow and refined pill shape -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer border -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#1A1A24" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+    <!-- Inner fill -->
+    <item
+        android:left="0.8dp"
+        android:top="0.8dp"
+        android:right="0.8dp"
+        android:bottom="0.8dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#131318"
+                android:endColor="#101014"
+                android:angle="90" />
+            <corners android:radius="25dp" />
+        </shape>
+    </item>
+</layer-list>

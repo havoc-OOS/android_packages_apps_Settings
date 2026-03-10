@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright (C) 2018 The Android Open Source Project
+  Copyright (C) 2025 The HavocOOS Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -21,16 +22,18 @@
     android:key="my_device_info_pref_screen"
     android:title="@string/about_settings">
 
+    <!-- Havoc OS Hero Header -->
     <com.android.settingslib.widget.LayoutPreference
         android:key="my_device_info_header"
-        android:layout="@layout/settings_entity_header"
+        android:layout="@layout/havoc_about_phone_header"
         android:selectable="false"
-        settings:isPreferenceVisible="false"/>
+        settings:isPreferenceVisible="true"/>
 
     <PreferenceCategory
         android:key="basic_info_category"
         android:selectable="false"
-        android:title="@string/my_device_info_basic_info_category_title">
+        android:title="@string/my_device_info_basic_info_category_title"
+        android:layout="@layout/havoc_preference_category">
 
         <!-- Device name -->
         <com.android.settings.widget.ValidatedEditTextPreference
@@ -38,6 +41,7 @@
             android:order="1"
             android:title="@string/my_device_info_device_name_preference_title"
             android:summary="@string/summary_placeholder"
+            android:layout="@layout/havoc_preference"
             settings:controller="com.android.settings.deviceinfo.DeviceNamePreferenceController"
             settings:enableCopying="true"/>
 
@@ -47,6 +51,7 @@
             android:order="2"
             android:title="@string/my_device_info_account_preference_title"
             android:summary="@string/summary_placeholder"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="true"
             settings:controller="com.android.settings.deviceinfo.BrandedAccountPreferenceController"/>
 
@@ -56,42 +61,17 @@
             android:order="3"
             android:title="@string/status_number"
             android:summary="@string/summary_placeholder"
+            android:layout="@layout/havoc_preference"
             settings:isPreferenceVisible="@bool/config_show_sim_info"
             settings:controller="com.android.settings.deviceinfo.PhoneNumberPreferenceController"
             settings:enableCopying="true"/>
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="legal_category"
-        android:title="@string/my_device_info_legal_category_title">
-
-        <!-- Legal information -->
-        <Preference
-            android:key="legal_container"
-            android:order="15"
-            android:title="@string/legal_information"
-            android:fragment="com.android.settings.LegalSettings"/>
-
-        <!-- Regulatory labels -->
-        <Preference
-            android:key="regulatory_info"
-            android:order="16"
-            android:title="@string/regulatory_labels">
-            <intent android:action="android.settings.SHOW_REGULATORY_INFO"
-                    android:targetPackage="${applicationId}"/>
-        </Preference>
-
-        <!-- Safety & regulatory manual -->
-        <Preference
-            android:key="safety_info"
-            android:order="18"
-            android:title="@string/safety_and_regulatory_info"/>
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="device_detail_category"
         android:selectable="false"
-        android:title="@string/my_device_info_device_details_category_title">
+        android:title="@string/my_device_info_device_details_category_title"
+        android:layout="@layout/havoc_preference_category">
 
         <!-- SIM status -->
         <Preference
@@ -100,6 +80,7 @@
             android:title="@string/sim_status_title"
             settings:keywords="@string/keywords_sim_status"
             android:summary="@string/summary_placeholder"
+            android:layout="@layout/havoc_preference"
             settings:isPreferenceVisible="@bool/config_show_sim_info"
             settings:controller="com.android.settings.deviceinfo.simstatus.SimStatusPreferenceController"/>
 
@@ -110,6 +91,7 @@
             android:title="@string/model_info"
             android:summary="@string/summary_placeholder"
             android:fragment="com.android.settings.deviceinfo.hardwareinfo.HardwareInfoFragment"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="true"
             settings:keywords="@string/keywords_model_and_hardware"
             settings:controller="com.android.settings.deviceinfo.HardwareInfoPreferenceController"/>
@@ -121,6 +103,7 @@
             android:title="@string/status_eid"
             android:positiveButtonText="@string/dlg_ok"
             android:dialogLayout="@layout/dialog_eid_status"
+            android:layout="@layout/havoc_preference"
             settings:isPreferenceVisible="@bool/config_show_sim_info"
             settings:enableCopying="true"
             settings:controller="com.android.settings.deviceinfo.simstatus.SimEidPreferenceController"/>
@@ -132,6 +115,7 @@
             android:title="@string/status_imei"
             android:summary="@string/summary_placeholder"
             settings:keywords="@string/keywords_imei_info"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="true"
             settings:isPreferenceVisible="@bool/config_show_sim_info"
             settings:controller="com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController"/>
@@ -143,6 +127,7 @@
             android:title="@string/firmware_version"
             android:summary="@string/summary_placeholder"
             android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings"
+            android:layout="@layout/havoc_preference"
             settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController"/>
 
         <!-- HavocOOS version -->
@@ -151,13 +136,15 @@
             android:order="43"
             android:title="@string/havoc_version"
             android:summary="@string/summary_placeholder"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="true"
             settings:controller="com.android.settings.deviceinfo.firmwareversion.HavocVersionDetailPreferenceController"/>
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="device_identifiers_category"
-        android:title="@string/my_device_info_device_identifiers_category_title">
+        android:title="@string/my_device_info_device_identifiers_category_title"
+        android:layout="@layout/havoc_preference_category">
 
         <!--IP address -->
         <Preference
@@ -166,6 +153,7 @@
             android:title="@string/wifi_ip_address"
             android:summary="@string/summary_placeholder"
             android:selectable="false"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="true"/>
 
         <!-- Wi-Fi MAC address -->
@@ -175,6 +163,7 @@
             android:title="@string/status_wifi_mac_address"
             android:summary="@string/view_saved_network"
             android:fragment="com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="false"/>
 
         <!-- Factory Wi-Fi MAC address -->
@@ -184,6 +173,7 @@
             android:title="@string/status_device_wifi_mac_address"
             android:summary="@string/summary_placeholder"
             android:selectable="false"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="true"/>
 
         <!-- Bluetooth address -->
@@ -193,6 +183,7 @@
             android:title="@string/status_bt_address"
             android:summary="@string/summary_placeholder"
             android:selectable="false"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="true"/>
 
         <!-- Device up time -->
@@ -201,13 +192,15 @@
             android:order="48"
             android:title="@string/status_up_time"
             android:summary="@string/summary_placeholder"
-            android:selectable="false"/>
+            android:selectable="false"
+            android:layout="@layout/havoc_preference"/>
 
         <!-- Manual -->
         <Preference
             android:key="manual"
             android:order="50"
-            android:title="@string/manual">
+            android:title="@string/manual"
+            android:layout="@layout/havoc_preference">
             <intent android:action="android.settings.SHOW_MANUAL"
                     android:targetPackage="${applicationId}"/>
         </Preference>
@@ -217,6 +210,7 @@
             android:key="device_feedback"
             android:order="51"
             android:title="@string/device_feedback"
+            android:layout="@layout/havoc_preference"
             settings:keywords="@string/keywords_device_feedback"/>
 
         <!-- Device FCC equipment id -->
@@ -224,7 +218,8 @@
             android:key="fcc_equipment_id"
             android:order="52"
             android:title="@string/fcc_equipment_id"
-            android:summary="@string/summary_placeholder"/>
+            android:summary="@string/summary_placeholder"
+            android:layout="@layout/havoc_preference"/>
 
         <!-- Build number -->
         <Preference
@@ -232,8 +227,40 @@
             android:order="53"
             android:title="@string/build_number"
             android:summary="@string/summary_placeholder"
+            android:layout="@layout/havoc_preference"
             settings:enableCopying="true"
             settings:controller="com.android.settings.deviceinfo.BuildNumberPreferenceController"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="legal_category"
+        android:title="@string/my_device_info_legal_category_title"
+        android:layout="@layout/havoc_preference_category">
+
+        <!-- Legal information -->
+        <Preference
+            android:key="legal_container"
+            android:order="15"
+            android:title="@string/legal_information"
+            android:layout="@layout/havoc_preference"
+            android:fragment="com.android.settings.LegalSettings"/>
+
+        <!-- Regulatory labels -->
+        <Preference
+            android:key="regulatory_info"
+            android:order="16"
+            android:title="@string/regulatory_labels"
+            android:layout="@layout/havoc_preference">
+            <intent android:action="android.settings.SHOW_REGULATORY_INFO"
+                    android:targetPackage="${applicationId}"/>
+        </Preference>
+
+        <!-- Safety & regulatory manual -->
+        <Preference
+            android:key="safety_info"
+            android:order="18"
+            android:title="@string/safety_and_regulatory_info"
+            android:layout="@layout/havoc_preference"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Refined avatar background with subtle gradient and glow-like border -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Glow ring -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:startColor="#3A3A55"
+                android:endColor="#22222E"
+                android:angle="135" />
+            <size android:width="48dp" android:height="48dp" />
+        </shape>
+    </item>
+    <!-- Inner fill -->
+    <item
+        android:left="1.5dp"
+        android:top="1.5dp"
+        android:right="1.5dp"
+        android:bottom="1.5dp">
+        <shape android:shape="oval">
+            <gradient
+                android:startColor="#1E1E2C"
+                android:endColor="#16161E"
+                android:angle="135" />
+            <size android:width="45dp" android:height="45dp" />
+        </shape>
+    </item>
+</layer-list>

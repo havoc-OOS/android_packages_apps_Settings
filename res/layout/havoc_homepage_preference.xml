@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Havoc OS homepage tile card preference layout
+  Polished: refined icon frame with circle bg, improved text hierarchy,
+  proper widget frame for preference-level widgets, responsive spacing
+  -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/havoc_tile_bg_ripple"
+        android:gravity="center_vertical"
+        android:minHeight="72dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:clipToPadding="false"
+        android:baselineAligned="false">
+
+        <!-- Icon in colored circular background -->
+        <FrameLayout
+            android:id="@+id/icon_frame"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginEnd="16dp">
+
+            <androidx.preference.internal.PreferenceImageView
+                android:id="@android:id/icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+        <!-- Text content -->
+        <LinearLayout
+            android:id="@+id/text_frame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:id="@android:id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/havoc_text_primary"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:singleLine="true"
+                android:ellipsize="marquee" />
+
+            <TextView
+                android:id="@android:id/summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textSize="13sp"
+                android:textColor="@color/havoc_text_secondary"
+                android:fontFamily="sans-serif"
+                android:maxLines="2"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <!-- Widget frame for toggles or custom widgets -->
+        <LinearLayout
+            android:id="@android:id/widget_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginEnd="4dp" />
+
+        <!-- Chevron arrow -->
+        <ImageView
+            android:id="@+id/havoc_chevron"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@android:drawable/ic_menu_more"
+            android:tint="@color/havoc_text_tertiary"
+            android:scaleType="centerInside"
+            android:alpha="0.7"
+            android:visibility="visible"
+            android:importantForAccessibility="no" />
+
+    </LinearLayout>
+
+</LinearLayout>

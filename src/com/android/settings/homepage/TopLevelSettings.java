@@ -56,6 +56,7 @@ import com.android.settings.widget.HomepagePreferenceLayoutHelper.HomepagePrefer
 import com.android.settingslib.core.instrumentation.Instrumentable;
 import com.android.settingslib.drawer.Tile;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settingslib.widget.LayoutPreference;
 import com.android.settingslib.widget.SettingsThemeHelper;
 
 import java.util.List;
@@ -169,6 +170,17 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
         }
         if (mHighlightMixin == null) {
             mHighlightMixin = new TopLevelHighlightMixin(activityEmbedded);
+        }
+
+        // Havoc OS: Initialize account header
+        initHavocAccountHeader();
+    }
+
+    private void initHavocAccountHeader() {
+        final LayoutPreference accountHeader =
+                getPreferenceScreen().findPreference("havoc_account_header");
+        if (accountHeader != null) {
+            new HavocAccountHeaderController(getContext(), accountHeader).init();
         }
     }
 

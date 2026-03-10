@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Default device image for About Phone hero card.
+  Device trees can override this by providing their own
+  drawable/havoc_device_default.xml or havoc_device_default.png
+  in their device-specific overlay.
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="200dp"
+    android:viewportWidth="120"
+    android:viewportHeight="200">
+
+    <!-- Phone body -->
+    <path
+        android:pathData="M20,12 L100,12 C106.627,12 112,17.373 112,24 L112,176 C112,182.627 106.627,188 100,188 L20,188 C13.373,188 8,182.627 8,176 L8,24 C8,17.373 13.373,12 20,12 Z"
+        android:fillColor="#1A1A24"
+        android:strokeColor="#2A2A38"
+        android:strokeWidth="1.5" />
+
+    <!-- Screen -->
+    <path
+        android:pathData="M16,28 L104,28 C105.1,28 106,28.9 106,30 L106,164 C106,165.1 105.1,166 104,166 L16,166 C14.9,166 14,165.1 14,164 L14,30 C14,28.9 14.9,28 16,28 Z"
+        android:fillColor="#0D0D16" />
+
+    <!-- Screen gradient shine -->
+    <path
+        android:pathData="M14,28 L60,28 L14,80 Z"
+        android:fillColor="#15152A"
+        android:fillAlpha="0.4" />
+
+    <!-- Camera notch -->
+    <path
+        android:pathData="M52,20 C52,17.791 53.791,16 56,16 L64,16 C66.209,16 68,17.791 68,20 L68,24 L52,24 Z"
+        android:fillColor="#0D0D16" />
+
+    <!-- Camera dot -->
+    <path
+        android:pathData="M60,20 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"
+        android:fillColor="#2A2A44" />
+
+    <!-- Havoc logo glow on screen -->
+    <path
+        android:pathData="M45,85 L60,70 L75,85 L67,85 L67,105 L53,105 L53,85 Z"
+        android:fillColor="#7B61FF"
+        android:fillAlpha="0.3" />
+
+    <!-- Bottom bar -->
+    <path
+        android:pathData="M46,176 L74,176"
+        android:strokeColor="#3A3A4A"
+        android:strokeWidth="3"
+        android:strokeLineCap="round" />
+</vector>

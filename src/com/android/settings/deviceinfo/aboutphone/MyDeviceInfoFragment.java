@@ -23,9 +23,18 @@ import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.UserInfo;
+import android.os.BatteryManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StatFs;
+import android.os.SystemProperties;
 import android.os.UserManager;
+import android.provider.Settings;
+import android.text.format.Formatter;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -212,36 +221,82 @@ public class MyDeviceInfoFragment extends DashboardFragment
     }
 
     private void initHeader() {
-        // TODO: Migrate into its own controller.
+        // Havoc OS: Bind data to the hero card header
         final LayoutPreference headerPreference =
                 getPreferenceScreen().findPreference(KEY_MY_DEVICE_INFO_HEADER);
-        final boolean shouldDisplayHeader = getContext().getResources().getBoolean(
-                R.bool.config_show_device_header_in_device_info);
-        headerPreference.setVisible(shouldDisplayHeader);
-        if (!shouldDisplayHeader) {
+        if (headerPreference == null) {
             return;
         }
-        final View headerView = headerPreference.findViewById(R.id.entity_header);
-        final Activity context = getActivity();
-        final Bundle bundle = getArguments();
-        final EntityHeaderController controller = EntityHeaderController
-                .newInstance(context, this, headerView)
-                .setButtonActions(EntityHeaderController.ActionType.ACTION_NONE,
-                        EntityHeaderController.ActionType.ACTION_NONE);
+        headerPreference.setVisible(true);
 
-        // TODO: There may be an avatar setting action we can use here.
-        final int iconId = bundle != null ? bundle.getInt("icon_id", 0) : 0;
-        if (iconId == 0) {
-            final UserManager userManager = (UserManager) getActivity().getSystemService(
-                    Context.USER_SERVICE);
-            final UserInfo info = Utils.getExistingUser(userManager,
-                    android.os.Process.myUserHandle());
-            controller.setLabel(info.name);
-            controller.setIcon(
-                    com.android.settingslib.Utils.getUserIcon(getActivity(), userManager, info));
+        // Device image — load dynamically from device tree overlay
+        // Device trees provide their own havoc_device_image drawable via RRO overlay.
+        // Falls back to havoc_device_default if no overlay is set.
+        final ImageView deviceImageView = headerPreference.findViewById(R.id.havoc_device_icon);
+        if (deviceImageView != null) {
+            int deviceImageResId = getContext().getResources().getIdentifier(
+                    "havoc_device_image", "drawable", getContext().getPackageName());
+            if (deviceImageResId != 0) {
+                deviceImageView.setImageResource(deviceImageResId);
+            } else {
+                // Default fallback device silhouette
+                deviceImageView.setImageResource(R.drawable.havoc_device_default);
+            }
         }
 
-        controller.done(true /* rebindActions */);
+        // Device name
+        final String deviceName = Settings.Global.getString(
+                getContext().getContentResolver(), Settings.Global.DEVICE_NAME);
+        final TextView deviceNameView = headerPreference.findViewById(R.id.havoc_device_name);
+        if (deviceNameView != null) {
+            deviceNameView.setText(deviceName != null ? deviceName : Build.MODEL);
+        }
+
+        // Havoc OS version + codename
+        final String havocVersion = SystemProperties.get("ro.havoc.build.version", "Unknown");
+        final String havocCodename = SystemProperties.get("ro.havoc.build.codename", "");
+        final TextView osVersionView = headerPreference.findViewById(R.id.havoc_os_version);
+        if (osVersionView != null) {
+            if (!havocCodename.isEmpty()) {
+                osVersionView.setText("v" + havocVersion + " | " + havocCodename);
+            } else {
+                osVersionView.setText("v" + havocVersion);
+            }
+        }
+
+        // Quick info grid: Android version
+        final TextView androidVersionView =
+                headerPreference.findViewById(R.id.havoc_grid_android_version);
+        if (androidVersionView != null) {
+            androidVersionView.setText("Android " + Build.VERSION.RELEASE);
+        }
+
+        // Quick info grid: Security patch
+        final TextView securityPatchView =
+                headerPreference.findViewById(R.id.havoc_grid_security_patch);
+        if (securityPatchView != null) {
+            securityPatchView.setText(Build.VERSION.SECURITY_PATCH);
+        }
+
+        // Quick info grid: Storage
+        final TextView storageView = headerPreference.findViewById(R.id.havoc_grid_storage);
+        if (storageView != null) {
+            final StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+            final long totalBytes = statFs.getTotalBytes();
+            final String totalStorage = Formatter.formatShortFileSize(getContext(), totalBytes);
+            storageView.setText(totalStorage);
+        }
+
+        // Quick info grid: Battery
+        final TextView batteryView = headerPreference.findViewById(R.id.havoc_grid_battery);
+        if (batteryView != null) {
+            final BatteryManager batteryManager =
+                    (BatteryManager) getContext().getSystemService(Context.BATTERY_SERVICE);
+            final int batteryLevel = batteryManager != null
+                    ? batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+                    : -1;
+            batteryView.setText(batteryLevel >= 0 ? batteryLevel + "%" : "N/A");
+        }
     }
 
     @Override

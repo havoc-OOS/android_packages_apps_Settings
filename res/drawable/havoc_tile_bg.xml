@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Havoc OS tile card background — refined with subtle inner gradient
+  for a modern glass-like depth effect on AMOLED
+  -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer border stroke -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/havoc_tile_border" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+    <!-- Inner fill with slight offset for border effect -->
+    <item
+        android:left="0.8dp"
+        android:top="0.8dp"
+        android:right="0.8dp"
+        android:bottom="0.8dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#18181E"
+                android:endColor="#121216"
+                android:angle="135" />
+            <corners android:radius="19.2dp" />
+        </shape>
+    </item>
+</layer-list>

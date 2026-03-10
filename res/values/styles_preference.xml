@@ -25,6 +25,11 @@
         <item name="seekBarPreferenceStyle">@style/SettingsSeekBarPreference</item>
         <item name="twoStateButtonPreferenceStyle">@style/TwoStateButtonPreference</item>
         <item name="preferenceFragmentCompatStyle">@style/SettingsPreferenceFragmentStyle</item>
+
+        <!-- Havoc OS: Override default preference layout with tile card style -->
+        <item name="preferenceStyle">@style/HavocPreferenceStyle</item>
+        <item name="switchPreferenceCompatStyle">@style/HavocSwitchPreferenceStyle</item>
+        <item name="preferenceCategoryStyle">@style/HavocPreferenceCategoryStyle</item>
     </style>
 
     <style name="PreferenceTheme.SetupWizard" parent="@style/SettingsPreferenceTheme">
@@ -59,7 +64,8 @@
     </style>
 
     <style name="SettingsPreferenceFragmentStyle" parent="@style/PreferenceFragment.Material">
-        <item name="android:divider">@*android:drawable/list_divider_material</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
     </style>
 
     <style name="SetupWizardPreferenceFragmentStyle" parent="PreferenceFragment.Material">
@@ -68,6 +74,21 @@
 
     <style name="VpnAppManagementPreferenceStyle" parent="@style/PreferenceFragment.Material">
         <item name="layout">@layout/vpn_app_management_preference</item>
+    </style>
+
+    <!-- Havoc OS: Tile card preference styles -->
+    <style name="HavocPreferenceStyle" parent="@style/Preference.Material">
+        <item name="android:layout">@layout/havoc_preference</item>
+        <item name="iconSpaceReserved">false</item>
+    </style>
+
+    <style name="HavocSwitchPreferenceStyle" parent="@style/SettingsSwitchPreferenceCompat.SettingsLib">
+        <item name="android:layout">@layout/havoc_preference</item>
+        <item name="iconSpaceReserved">false</item>
+    </style>
+
+    <style name="HavocPreferenceCategoryStyle" parent="@style/Preference.Material.Category">
+        <item name="android:layout">@layout/havoc_preference_category</item>
     </style>
 
 </resources>

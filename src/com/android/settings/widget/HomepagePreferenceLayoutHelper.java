@@ -47,10 +47,8 @@ public class HomepagePreferenceLayoutHelper {
     }
 
     public HomepagePreferenceLayoutHelper(Preference preference) {
-        preference.setLayoutResource(
-                SettingsThemeHelper.isExpressiveTheme(preference.getContext())
-                        ? R.layout.homepage_preference_expressive
-                        : R.layout.homepage_preference);
+        // Havoc OS: Use tile card layout for premium dark UI
+        preference.setLayoutResource(R.layout.havoc_homepage_preference);
     }
 
     /** Sets whether the icon should be visible */

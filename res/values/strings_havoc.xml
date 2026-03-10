@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Havoc OS specific string resources -->
+<resources>
+    <!-- Homepage category titles -->
+    <string name="havoc_category_connectivity">Connectivity</string>
+    <string name="havoc_category_personalize">Personalize</string>
+    <string name="havoc_category_system">System &amp; Device</string>
+    <string name="havoc_category_security">Security</string>
+
+    <!-- Account header -->
+    <string name="havoc_setup_account">Set up your account</string>
+    <string name="havoc_account_tap_to_switch">Tap to switch accounts</string>
+
+    <!-- QR code -->
+    <string name="havoc_qr_code">QR Code</string>
+
+    <!-- About Phone -->
+    <string name="havoc_battery_health">Battery health</string>
+</resources>

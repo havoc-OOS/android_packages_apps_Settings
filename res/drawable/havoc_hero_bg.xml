@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Havoc OS About Phone hero card — richer gradient with subtle glow
+  -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Border glow -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#30285A"
+                android:endColor="#181820"
+                android:angle="270" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    <!-- Inner fill gradient -->
+    <item
+        android:left="1dp"
+        android:top="1dp"
+        android:right="1dp"
+        android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#2D1358"
+                android:centerColor="#1A0E38"
+                android:endColor="#0C0C12"
+                android:angle="270" />
+            <corners android:radius="23dp" />
+        </shape>
+    </item>
+</layer-list>
